@@ -1,53 +1,47 @@
-import { Component, setState } from "react"
-// import React { useState }
-// import Button from 'react-bootstrap/Button';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-class Dashboard extends Component {
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+//import App from './App';
+//import reportWebVitals from './reportWebVitals';
+//import * as serviveWoker from "./serviceWorker";
+class App extends React.Component {
+	constructor(props) {
+	  super(props);
+	  this.state = {
+      isToggleOn: true,
+		value: 'On'
+	            };
   
-      //  constructor() {
-      //  super()
-       state = {
-            count: 0,
-            clicked: false
-            }
-            // this.v = 0;
-    //  }
-   increment =() =>{
-// this.v= this.v+1
-      
-      
-        };
-   decrement =() =>{
-        this.setState(
-        {
-        count:this.state.count+1
-        }
-        );
-        };
- 
-   reset =() =>{
-       this.setState(
-       {
-       count:0
-       }
-       );
-       };
+	  this.handleClick = this.handleClick.bind(this);
+	}
+handleClick() {
+  this.setState(prevState => ({
+  isToggleOn: !prevState.isToggleOn
   
-   render() {
-       var myStyle = {
-           fontSize: 30,
-           color: '#60586e'
-           }
-   return(<div style={{
-              position: 'absolute', left: '50%', top:'20%',
-              transform: 'translate(-50%, -50%)'
-              }}>
-              <h3 style={myStyle}>Number Counting :{this.v}</h3>
-              <h3 style={myStyle}>Number Counting :{this.state.count}</h3>
-              <button style={{marginRight:'10px'}} className="btn btn-info"  onClick={(e)=>this.increment(e)}>Increment</button>
-              <button style={{marginRight:'10px'}} className="btn btn-info" onClick={(e)=>this.decrement(e)}>Decrement</button>
-              <button className="btn btn-info" onClick={(e)=>this.reset(e)}>Reset </button>
-          </div>)
-          }
- }
- export default Dashboard;
+  }));
+  this.setState({value: 'Off'})
+}
+handleChange (e) {
+  //console.log('handle change called')
+  // this.setState({value: 'Good Evening..'})
+  }
+  render() {
+	
+	  return (
+		  <>
+		  <input value={this.state.value} onChange={this.handleChange}/>
+
+		  <button variant="contained" color="secondary" style={{marginLeft:'10px',padding:'3px', color:'red', border:'2px solid #8a66d1'}} onClick={this.handleClick}>
+		  {this.state.isToggleOn ? 'ON' : 'OFF'}
+		  </button>
+		</>
+	  );
+	}
+}
+export default App
+// document.getElementById('root')
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// reportWebVitals();
+//serviveWoker.unregistered();

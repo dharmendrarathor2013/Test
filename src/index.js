@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 //import * as serviveWoker from "./serviceWorker";
 
 ReactDOM.render(
-  <h1>Hello</h1>,
+  <App/>,
   document.getElementById('root')
 );
 
