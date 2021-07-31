@@ -8,7 +8,12 @@ const Switch = ({ isOn, ...rest }) => {
 const customClassName =
 	`toggleSwitch ${isOn ? "on" : "off"}`;
 
-const src = isOn ?"https://picsum.photos/200": "https://picsum.photos/200";
+
+const src = isOn
+	?
+"Toggle 1st Image link"
+	:
+"Toggle 2nd Image link";
 
 return (
 	<motion.div animate className=

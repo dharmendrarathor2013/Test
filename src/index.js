@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-//import * as serviveWoker from "./serviceWorker";
+import App1 from './App1';
 
+
+const name = 'Dharmendra';
+const tdate = new Date().toLocaleDateString();
+const ttime = new Date().toLocaleTimeString();
+// const currentDate = tdate.getFullYear()+'-'+(tdate.getMonth()+1) +'-'+tdate.getDate();
+// const currentTime = tdate.getHours()+': '+tdate.getMinutes()+':'+tdate.getSeconds();
 ReactDOM.render(
-  <App/>,
+  <React.Fragment>
+  <App></App>
+  <App1></App1>
+  
+ 
+    <h1>{name}</h1>
+    <p>{tdate}</p>
+    <p>{ttime}</p>
+  </React.Fragment>,
+  
   document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
- reportWebVitals();
-//serviveWoker.unregistered();
+);
